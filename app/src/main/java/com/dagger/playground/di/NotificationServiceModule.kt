@@ -9,7 +9,7 @@ import dagger.hilt.migration.DisableInstallInCheck
 
 @Module
 @DisableInstallInCheck
-object NotificationServiceModule {
+class NotificationServiceModule(private val retryCount: Int) {
 
     @EmailQualifier
     @Provides
@@ -20,6 +20,6 @@ object NotificationServiceModule {
     @MessageQualifier
     @Provides
     fun getMessageService(): NotificationService {
-        return MessageService()
+        return MessageService(retryCount)
     }
 }

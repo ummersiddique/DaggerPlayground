@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dagger.playground.data.UserRegistrationService
 import com.dagger.playground.di.DaggerUserRegistrationComponent
+import com.dagger.playground.di.NotificationServiceModule
 import com.dagger.playground.ui.theme.DaggerPlaygroundTheme
 import javax.inject.Inject
 
@@ -24,7 +25,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val component = DaggerUserRegistrationComponent.builder().build()
+        val component = DaggerUserRegistrationComponent
+            .builder()
+            .notificationServiceModule(NotificationServiceModule(3))
+            .build()
         component.inject(this)
         userRegistrationService.registerUser("umer@gmail.com", "123456789")
 
