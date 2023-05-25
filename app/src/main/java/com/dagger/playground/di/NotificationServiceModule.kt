@@ -6,6 +6,7 @@ import com.dagger.playground.data.NotificationService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.migration.DisableInstallInCheck
+import javax.inject.Singleton
 
 @Module
 @DisableInstallInCheck
@@ -17,6 +18,7 @@ class NotificationServiceModule {
         return emailService
     }
 
+    @Singleton
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount: Int): NotificationService {

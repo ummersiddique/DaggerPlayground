@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.dagger.playground.data.EmailService
 import com.dagger.playground.data.UserRegistrationService
 import com.dagger.playground.di.DaggerUserRegistrationComponent
 import com.dagger.playground.ui.theme.DaggerPlaygroundTheme
@@ -20,6 +21,10 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var userRegistrationService: UserRegistrationService
+    @Inject
+    lateinit var emailService: EmailService
+    @Inject
+    lateinit var emailService2: EmailService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
